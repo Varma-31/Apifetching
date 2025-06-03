@@ -1,3 +1,6 @@
+package com.example.training.Data.network
+
+import com.example.training.Data.model.School
 import retrofit2.Response
 import retrofit2.http.GET
 

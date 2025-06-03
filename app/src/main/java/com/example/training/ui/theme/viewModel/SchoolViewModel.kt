@@ -1,7 +1,11 @@
-import androidx.lifecycle.MutableLiveData
+package com.example.training.ui.theme.viewModel
+
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.training.Data.model.School
+import com.example.training.Data.repositary.SchoolRepository
 import kotlinx.coroutines.launch
 
 class SchoolViewModel : ViewModel() {

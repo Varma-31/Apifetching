@@ -1,13 +1,12 @@
-package com.example.training
+package com.example.training.ui.theme.view
 
-
-import SchoolAdapter
-import SchoolViewModel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.training.R
+import com.example.training.ui.theme.viewModel.SchoolViewModel
 
 class MainActivity : ComponentActivity() {
     private val viewModel: SchoolViewModel by viewModels()
@@ -27,4 +26,3 @@ class MainActivity : ComponentActivity() {
 
     }
 }
-

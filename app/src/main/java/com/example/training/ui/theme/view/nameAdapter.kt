@@ -1,9 +1,12 @@
+package com.example.training.ui.theme.view
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.training.R
+import com.example.training.Data.model.Name
 
 class NameAdapter(private val names: List<Name>) : RecyclerView.Adapter<NameAdapter.NameViewHolder>() {
 

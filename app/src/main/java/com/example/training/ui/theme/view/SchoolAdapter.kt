@@ -1,8 +1,11 @@
+package com.example.training.ui.theme.view
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.training.Data.model.School
 import com.example.training.R
 
 class SchoolAdapter(private val schools: List<School>) : RecyclerView.Adapter<SchoolAdapter.SchoolViewHolder>() {
