@@ -1,6 +1,10 @@
 package com.example.training.Data.model
 
+import com.google.gson.annotations.SerializedName
 // School.kt
+
 data class School(
-    val school_name: String
+    val dbn: String?,
+    @SerializedName("school_name")
+    val schoolName: String?
 )

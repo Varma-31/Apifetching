@@ -1,27 +1,39 @@
 package com.example.training.ui.theme.view
 
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.training.Data.model.School
-import com.example.training.R
+import com.example.training.databinding.ItemSchoolBinding
 
-class SchoolAdapter(private val schools: List<School>) : RecyclerView.Adapter<SchoolAdapter.SchoolViewHolder>() {
+class SchoolAdapter(private var schools: List<School>) : RecyclerView.Adapter<SchoolAdapter.SchoolViewHolder>() {
 
-    class SchoolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvSchoolName: TextView = itemView.findViewById(R.id.tvSchoolName)
+    inner class SchoolViewHolder(private val binding: ItemSchoolBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(school: School) {
+            Log.d("AdapterBind", "Binding: ${school.schoolName ?: "No Name"}")
+            binding.schoolName.text = school.schoolName ?: "No Name"
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SchoolViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_school, parent, false)
-        return SchoolViewHolder(view)
+        val binding = ItemSchoolBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return SchoolViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: SchoolViewHolder, position: Int) {
-        holder.tvSchoolName.text = schools[position].school_name
+        holder.bind(schools[position])
     }
 
-    override fun getItemCount() = schools.size
+    override fun getItemCount(): Int = schools.size
+
+    fun updateData(newSchools: List<School>, reset: Boolean = false) {
+        Log.d("Adapter", "Updating data with ${newSchools.size} schools. Reset = $reset")
+        schools = if (reset) newSchools else schools + newSchools
+        notifyDataSetChanged()
+    }
 }
+
+
+
+

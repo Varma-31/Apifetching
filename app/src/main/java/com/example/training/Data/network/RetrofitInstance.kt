@@ -8,7 +8,7 @@ object RetrofitInstance {
 
     val api: SchoolApiService by lazy {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL) // must end with '/'
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(SchoolApiService::class.java)
